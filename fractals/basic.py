@@ -33,6 +33,6 @@ if __name__ == '__main__':
     # t.tracer(0, 0)
     t.left(90)
     t.speed(0)
-    branch(2, 100)
+    branch(3, 100)
     # t.update()
     t.done()
