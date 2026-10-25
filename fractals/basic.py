@@ -30,9 +30,9 @@ def branch(depth: int, length: float) -> None:
 
 
 if __name__ == '__main__':
-    # t.tracer(0, 0)
+    t.tracer(0, 0)
     t.left(90)
-    t.speed(0)
-    branch(3, 100)
-    # t.update()
+    # t.speed(0)
+    branch(7, 100)
+    t.update()
     t.done()
