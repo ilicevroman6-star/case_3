@@ -21,7 +21,7 @@ def draw_binary_tree(depth: int, size: float, angle: float) -> None:
         t.backward(size)
 
 
-def branch(depth: int, length: float) -> None:
+def draw_branch(depth: int, length: float) -> None:
     """
     Рисует фрактал "Ветка".
     :param depth: Глубина рекурсии.
@@ -38,14 +38,14 @@ def branch(depth: int, length: float) -> None:
     t.fd(length)
 
     t.left(45)
-    branch(depth - 1, 0.5 * length)
+    draw_branch(depth - 1, 0.5 * length)
     t.right(45)
 
     t.right(45)
-    branch(depth - 1, 0.5 * length)
+    draw_branch(depth - 1, 0.5 * length)
     t.left(45)
 
-    branch(depth - 1, 0.7 * length)
+    draw_branch(depth - 1, 0.7 * length)
     t.bk(length)
 
 
@@ -54,6 +54,6 @@ if __name__ == '__main__':
     t.left(90)
     # t.speed(0)
     draw_binary_tree(6, 100, 45)
-    branch(7, 100)
+    draw_branch(7, 100)
     t.update()
     t.done()

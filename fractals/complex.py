@@ -1,7 +1,7 @@
 import turtle as t
 
 
-def ice_fractal_1(order: int, size: float) -> None:
+def draw_ice_fractal_1(order: int, size: float) -> None:
     """
     Рисует ледяной фрактал1
     :param order: Глубина рекурсии.
@@ -12,19 +12,19 @@ def ice_fractal_1(order: int, size: float) -> None:
         t.forward(size)
         return
 
-    ice_fractal_1(order - 1, size / 2)
+    draw_ice_fractal_1(order - 1, size / 2)
 
     t.left(90)
-    ice_fractal_1(order - 1, size / 4)
+    draw_ice_fractal_1(order - 1, size / 4)
     t.left(180)
-    ice_fractal_1(order - 1, size / 4)
+    draw_ice_fractal_1(order - 1, size / 4)
 
     t.left(90)
 
-    ice_fractal_1(order - 1, size / 2)
+    draw_ice_fractal_1(order - 1, size / 2)
 
 
-def ice_fractal_2(order: int, size: float) -> None:
+def draw_ice_fractal_2(order: int, size: float) -> None:
     """
     Рисует ледяной фрактал.
     :param order: Глубина рекурсии.
@@ -35,25 +35,25 @@ def ice_fractal_2(order: int, size: float) -> None:
         t.fd(size)
         return
 
+    draw_ice_fractal_2(order - 1, size)
+
+    t.left(120)
+    draw_ice_fractal_2(order - 1, size / 3)
+    t.left(180)
+    draw_ice_fractal_2(order - 1, size / 3)
+
+    t.left(120)
+    draw_ice_fractal_2(order - 1, size / 3)
+    t.left(180)
+    draw_ice_fractal_2(order - 1, size / 3)
+
+
+
+    t.left(120)
     ice_fractal_2(order - 1, size)
 
-    t.left(120)
-    ice_fractal_2(order - 1, size / 3)
-    t.left(180)
-    ice_fractal_2(order - 1, size / 3)
 
-    t.left(120)
-    ice_fractal_2(order - 1, size / 3)
-    t.left(180)
-    ice_fractal_2(order - 1, size / 3)
-
-
-
-    t.left(120)
-    ice_fractal_2(order - 1, size)
-
-
-def levy(depth: int, length: float) -> None:
+def draw_levy(depth: int, length: float) -> None:
     """
     Рисует фрактал "Кривая Леви".
     :param depth: Глубина рекурсии.
@@ -64,9 +64,9 @@ def levy(depth: int, length: float) -> None:
         t.fd(length)
         return
     t.left(45)
-    levy(depth - 1, 0.5 * length)
+    draw_levy(depth - 1, 0.5 * length)
     t.right(90)
-    levy(depth - 1, 0.5 * length)
+    draw_levy(depth - 1, 0.5 * length)
     # Нужно добавить left, чтобы компенсировать 1ый left,
     # иначе будет создаваться лишний бугор.
     t.left(45)
@@ -75,8 +75,8 @@ def levy(depth: int, length: float) -> None:
 if __name__ == "__main__":
     t.tracer(0, 0)
     # t.speed(0)
-    ice_fractal_1(2,100)
-    ice_fractal_2(2, 100)
-    levy(12, 10000)
+    draw_ice_fractal_1(2,100)
+    draw_ice_fractal_2(2, 100)
+    draw_levy(12, 10000)
     t.update()
     t.done()
