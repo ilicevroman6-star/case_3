@@ -1,6 +1,29 @@
 import turtle as t
 
 
+def ice_fractal_1(order: int, size: float) -> None:
+    """
+    Рисует ледяной фрактал1
+    :param order: Глубина рекурсии.
+    :param size: Длина отрезка.
+    :return: None.
+    """
+    if order == 0:
+        t.forward(size)
+        return
+
+    ice_fractal_1(order - 1, size / 2)
+
+    t.left(90)
+    ice_fractal_1(order - 1, size / 4)
+    t.left(180)
+    ice_fractal_1(order - 1, size / 4)
+
+    t.left(90)
+
+    ice_fractal_1(order - 1, size / 2)
+
+
 def ice_fractal_2(order: int, size: float) -> None:
     """
     Рисует ледяной фрактал.
@@ -52,6 +75,7 @@ def levy(depth: int, length: float) -> None:
 if __name__ == "__main__":
     t.tracer(0, 0)
     # t.speed(0)
+    ice_fractal_1(2,100)
     ice_fractal_2(2, 100)
     levy(12, 10000)
     t.update()
