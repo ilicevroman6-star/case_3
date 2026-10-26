@@ -1,6 +1,26 @@
 import turtle as t
 
 
+def draw_binary_tree(depth: int, size: float, angle: float) -> None:
+    """
+    Рисует двоичное дерево.
+    :param depth: Глубина рекурсии.
+    :param size: Длина отрезка.
+    :param angle: Угол.
+    :return: None.
+    """
+    if depth == 0:
+        return
+    else:
+        t.fd(size)
+        t.right(angle)
+        draw_binary_tree(depth - 1, size / 2, angle)
+        t.left(2 * angle)
+        draw_binary_tree(depth - 1, size / 2, angle)
+        t.right(angle)
+        t.backward(size)
+
+
 def branch(depth: int, length: float) -> None:
     """
     Рисует фрактал "Ветка".
@@ -33,6 +53,7 @@ if __name__ == '__main__':
     t.tracer(0, 0)
     t.left(90)
     # t.speed(0)
+    draw_binary_tree(6, 100, 45)
     branch(7, 100)
     t.update()
     t.done()
